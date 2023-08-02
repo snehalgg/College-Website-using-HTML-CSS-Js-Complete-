@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Website</title>
+    <link rel="Shortcut Icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+        body {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS for header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1b1414;
+        }
+
+        .header .logo {
+            font-size: 25px;
+            font-family: 'Sriracha', cursive;
+            color: rgb(245, 179, 179);
+            text-decoration: none;
+            margin-left: 30px;
+        }
+
+        .nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #1b1414;
+            margin-right: 20px;
+        }
+
+        .nav-items a {
+            text-decoration: none;
+            color: rgb(250, 186, 186);
+            padding: 35px 20px;
+        }
+
+        
+        .wrapper {
+            display: flex;
+            border-bottom: 1px solid var(--clr-grey-2);
+        }
+
+        .empty {
+            border-bottom: none;
+        }
+
+        input {
+            padding: 6px 8px;
+            width: 10rem;
+            border: none;
+            font-size: 15px;
+            border-radius: 3px 0 0 0;
+        }
+
+        .empty-input {
+            border-radius: 3px 0 0 3px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .search-btn {
+            width: 2rem;
+            border: none;
+            background: #fff;
+            font-size: 15px;
+            border-radius: 0 3px 0 0;
+        }
+
+        .empty-btn {
+            border-radius: 0 3px 3px 0;
+        }
+
+        .fa-search {
+            color: var(--clr-grey-2);
+        }
+
+        .results {
+            position: absolute;
+            width: 100%;
+            background: #fff;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .results li {
+            color: var(--clr-grey-3);
+            padding: 8px;
+            padding-bottom: 0;
+        }
+
+        li:last-child {
+            padding-bottom: 8px;
+            border-radius: 0 0 3px 3px;
+        }
+        /*css for button*/
+        #b1{
+	background-color:#967c5b;
+	border: none;
+	border-radius: 25px 25px/ 25px 25px;
+	
+  box-shadow:2px 2px 0px 2px #949494;
+	color: white;
+	padding:15px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+      
+
+
+            
+
+/*CSS for search*/
+                .fullPageMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    transition: 0.5s;
+}
+
+.fullPageMenu.active {
+    top: 100%;
+}
+
+.fullPageMenu .banner {
+    position: fixed;
+    width: 600px;
+    height: 100%;
+}
+
+.fullPageMenu .banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fullPageMenu .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.fullPageMenu .nav ul {
+    position: relative;
+    margin-top: 150px;
+}
+
+.fullPageMenu .nav ul li {
+    position: relative;
+    list-style: none;
+    padding: 0 20px;
+    margin: 5px 0;
+    overflow: hidden;
+    display: table;
+    margin-top: 10px;
+}
+
+.fullPageMenu .nav ul li:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff0047;
+    transition: transform 0.5s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+.fullPageMenu .nav ul li:hover:before {
+    transition: transform 0.5s ease-in-out;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.fullPageMenu .nav ul li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 4em;
+    font-weight: 700;
+    line-height: 1em;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+
+.fullPageMenu .nav ul li a::before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    color: #fff;
+}
+
+.fullPageMenu .nav ul li:hover a {
+    transform: translateY(-100%);
+    color: fff;
+}
+
+.menuicon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #000000 url(bm.jfif);
+    background-size: 40px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.menuicon.active {
+    background: #000000 url(bm.jfif);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    position: absolute;
+    top: -16px;
+    left: 202px;
+}
+
+@media(max-width:991px) {
+    .banner {
+        display: none;
+    }
+}
+        /*Css For Footer*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+
+        footer {
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            background: #111;
+        }
+
+        footer .content {
+            max-width: 1350px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        footer .content p,
+        a {
+            color: #fff;
+        }
+
+        footer .content .box {
+            width: 33%;
+            transition: all 0.4s ease;
+        }
+
+        footer .content .topic {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+
+        }
+
+        footer .content p {
+            text-align: justify;
+        }
+
+        footer .content .lower .topic {
+            margin: 24px 0 5px 0;
+        }
+
+        footer .content .lower i {
+            padding-right: 16px;
+        }
+
+        footer .content .middle {
+            padding-left: 80px;
+        }
+
+        footer .content .middle a {
+            line-height: 32px;
+        }
+
+        footer .content .right input[type="text"] {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            color: #d9d9d9;
+            background: #000;
+            border-radius: 5px;
+            padding-left: 10px;
+            font-size: 17px;
+            border: 2px solid #222222;
+        }
+
+        footer .content .right input[type="submit"] {
+            height: 42px;
+            width: 100%;
+            font-size: 18px;
+            color: #000000;
+            background: #22EF3A;
+            outline: none;
+            border-radius: 5px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 12px;
+            border: 2px solid #22EF3A;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .content .right input[type="submit"]:hover {
+            background: none;
+            color: #22EF3A;
+        }
+
+        footer .content .media-icons a {
+            font-size: 16px;
+            height: 45px;
+            width: 45px;
+            display: inline-block;
+            text-align: center;
+            line-height: 43px;
+            border-radius: 5px;
+            border: 2px solid #222222;
+            margin: 30px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .content .media-icons a:hover {
+            border-color: #22EF3A;
+        }
+
+        footer .bottom {
+            width: 100%;
+            text-align: right;
+            color: #d9d9d9;
+            padding: 0 40px 5px 0;
+        }
+
+        footer .bottom a {
+            color: #22EF3A;
+        }
+
+        footer a {
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #22EF3A;
+        }
+
+        @media (max-width:1100px) {
+            footer .content .middle {
+                padding-left: 50px;
+            }
+        }
+
+        @media (max-width:950px) {
+            footer .content .box {
+                width: 50%;
+            }
+
+            .content .right {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width:560px) {
+            footer {
+                position: relative;
+            }
+
+            footer .content .box {
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            footer .content .middle {
+                padding-left: 0;
+            }
+
+        }
+
+        h3 {
+            color: darkred;
+        }
+
+
+        header .nav-items a{
+    font-size: 1.2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color:#d1d1d1;
+}
+
+header .nav-items a.active,
+header .nav-items a:hover{
+    color: #fd2c2c;
+  background: var(--col-1);
+}
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: 0.5rem;
+    height: 2rem;
+    line-height: 2rem;
+    width: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--col-2);
+    border-radius: 50%;
+    background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover{
+    color: #eb5151;
+  background: var(--col-1);
+  transform: rotate(360deg);
+}
+
+header .icons #menu-bars{
+    display: none;
+}
+#load
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150px;
+  height:150px;
+  background:transparent;
+  border:3px solid #3c3c3c;
+  border-radius:50%;
+  text-align:center;
+  line-height:150px;
+  font-size:1.3rem;
+  color:#000000;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-shadow:0 0 10px #fff000;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+  
+}
+#load:before
+{
+  content:'';
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid #fff000;
+  border-right:3px solid #fff000;
+  border-radius:50%;
+  animation:animateC 2s linear infinite;
+}
+span1
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 2s linear infinite;
+}
+span1:before
+{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#fd0404;
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px #fff000;
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
+}
+
+
+
+            /*Css for dark mode*/
+.dark-mode {
+		background-color: black;
+		color: white;
+	}
+	.light-mode {
+		background-color: white;
+		color: black;
+	}
+    .fo{
+	background-color:#a04d00;
+	border: none;
+	border-radius: 25px 25px/ 25px 25px;
+	color: rgb(247, 43, 43);
+	padding:10px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+    .dm{
+        background-color: #000;
+        color: whitesmoke;
+        cursor: pointer;
+    }
+    .lm{
+        background-color: #000;
+        color: whitesmoke;
+        cursor: pointer;
+    }
+
+
+
+
+
+                /*CSS for Gall*/
+                .gallery {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(10, 80vw);
+  grid-template-rows: 1fr;
+  grid-column-gap: 1rem;
+  grid-row-gap: 1rem;
+  overflow: auto;
+  height: 90vh;
+  scroll-snap-type: both mandatory;
+  scroll-padding: 1rem;
+}
+
+.active {
+  scroll-snap-type: unset;
+}
+
+li {
+  scroll-snap-align: center;
+  display: inline-block;
+  border-radius: 3px;
+  font-size: 0;
+}
+
+
+
+                th{
+                    padding-right: 200px;
+                    font-size: 30px;
+                }
+
+                td{
+                    padding-right: 250px;
+                    font-size: 25px;
+                    
+                }
+
+
+
+
+
+                .hola a{
+                    color: blue;
+                }
+
+                .Impoo{
+                    text-decoration: underline crimson;
+                    color: #22EF3A;
+                }
+
+
+
+
+
+                /*CSS FOR CArousel*/
+                html,
+body,
+.carousel {
+  height: 100%;
+}
+
+.carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.carousel-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  width: 300%;
+  height: 100%;
+  transition: 0.5s;
+}
+
+.carousel img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.carousel-controls {
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+input {
+  display: none;
+}
+
+input,
+label {
+  position: relative;
+  z-index: 2;
+}
+
+label {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0.3;
+  backdrop-filter: blur(20px);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.dots {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 400px;
+  background: linear-gradient(transparent, #000 90%);
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+input:nth-child(1):checked ~ .dots label:nth-child(1),
+input:nth-child(2):checked ~ .dots label:nth-child(2),
+input:nth-child(3):checked ~ .dots label:nth-child(3) {
+  background: rgba(255, 255, 255, 0.95);
+  opacity: 1;
+  backdrop-filter: none;
+}
+
+input:nth-child(1):checked ~ .carousel-images {
+  translate: 0;
+}
+
+input:nth-child(2):checked ~ .carousel-images {
+  translate: -100vw;
+}
+
+input:nth-child(3):checked ~ .carousel-images {
+  translate: -200vw;
+}
+
+
+
+
+            .Hentai{
+                padding: 100px;
+            }
+            .Hentaa{
+                padding: 100px;
+            }
+
+            .Hent{
+                padding: 100px;
+            }
+
+            td{
+                text-align: center;
+            }
+    </style>
+
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VKBJ61GEPE');
+    </script>
+
+</head>
+
+<body>
+    <div id="load">Loading
+        <span1></span1>
+      </div>
+      <script>
+        document.onreadystatechange = function () {
+         var state = document.readyState
+  if (state == 'interactive') {
+       document.getElementById('contents').style.visibility="hidden";
+  } else if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('interactive');
+         document.getElementById('load').style.visibility="hidden";
+         document.getElementById('contents').style.visibility="visible";
+      },1000);
+  }
+        }
+  
+    </script>
+    <header class="header">
+        <img src="https://res.cloudinary.com/teepublic/image/private/s--4QgZGglv--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1474683748/production/designs/630314_2.jpg"
+            width="150" height="160">
+        <a href="" class="logo">One Piece University</a>
+        <nav class="nav-items">
+
+            <a href="homepage.html">Home</a>
+            <a href="Academics.html">Academics</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Admissions.html">Admission</a>
+            <button class="dm" onclick="darkMode()">D
+                <button class="lm" onclick="lightMode()">L</button></button>
+                <script>
+                function darkMode() {
+                    var element = document.body;
+                    var content = document.getElementById("");
+                    element.className = "dark-mode";
+                    
+                }
+                function lightMode() {
+                    var element = document.body;
+                    var content = document.getElementById("");
+                    element.className = "light-mode";
+                    
+                }
+                </script>
+            <!-- search form  -->
+            <div class="search-container">
+                <form class="wrapper empty">
+                    <input class="search empty-input" id="search" type="text" placeholder="Search..." name="search"
+                        autocomplete="off">
+                        <button type="submit" class="search-btn empty-btn"><i class="fas fa-search"></i></button>
+                       
+                </form>
+        </nav>
+    </header>
+    
+            <h1 align="center">Academics</h1> <br>
+            <h2 align="center">One Piece University students create and apply knowledge by thinking and doing, preparing for leadership in a rapidly changing world.</h2>
+
+ 
+    <hr></hr>
+    <br><br><br>
+
+
+    <div class="carousel">
+        <div class="carousel-controls">
+          <input id="1" type="radio" name="controls" checked />
+          <input id="2" type="radio" name="controls" />
+          <input id="3" type="radio" name="controls" />
+          <div class="dots">
+            <label for="1"></label>
+            <label for="2"></label>
+            <label for="3"></label>
+          </div>
+          <div class="carousel-images">
+            <img src="https://th.bing.com/th/id/OIP.SaRz63RTbKI5uXM_TFzpyAHaFj?w=280&h=180&c=7&r=0&o=5&pid=1.7" />
+            <img src="https://th.bing.com/th/id/OIP.Fd3IJLrSxEXlRRHHh-VYNwHaEK?pid=ImgDet&w=474&h=266&rs=1" />
+            <img src="https://th.bing.com/th/id/OIP.etIym076os1HD3d7yEsjFgHaEo?w=259&h=180&c=7&r=0&o=5&pid=1.7" />
+          </div>
+        </div>
+      </div>
+
+      <br> <hr> <br>
+
+
+    <div class="Section1">
+        <table>
+            <th>Faculty Members</th>
+            <th>Student to Faculty Ratio</th>
+            <th>Graduate Fields OF study</th>
+            
+            <tr>
+            
+                <td>2087</td>
+                <td> 3:1</td>
+                <td>200</td>
+                
+            </tr>
+        
+        </table>
+        <hr></hr>
+    </div>
+    <br>
+    <br>
+    <br>
+   
+
+                        <div class="Impoo">
+                    <h1 align="center">Undergraduate Studies</h1></div>
+                    <br>
+                    <br><div class="Hentai">
+                        <h2>Undergraduate Education:-</h2><br>
+                        <p>One Piece Undergrad is your guide to undergraduate academics and opportunities run by the Vice Provost for Undergraduate Education.</p>
+                        <br>
+                        <h2>Majors:-</h2><br>
+                    <p>Explore the more than 69 major fields of undergraduate study at OPU.</p>
+                    <br>
+                    <h2>Undergraduate Facts & Figures:-</h2><br>
+                    <p>Approximately 7,600 undergraduate students attend OPU. Learn more about the undergraduate program and student body. <br>
+                    <br></p>
+                        <div class="hola">
+                    <a href="Undergrad.html">Know More</a>
+                    </div><br></div>
+
+                     
+                    <div class="Impoo">
+                        <h1 align="center">Graduate Studies</h1></div>
+                        <br>
+                        <br><div class="Hentaa">
+                            <h2>Office of the Vice Provost for Graduate Education:-</h2><br>
+                            <p>The VPGE office works collaboratively across the University to ensure that every graduate student has the best possible education.</p>
+                            <br>
+                            <h2>Graduate Facts & Figures:-</h2><br>
+                        <p>Today, 9,292 students are pursuing 14 distinct postbaccalaureate degrees in nearly 200 graduate programs in all seven of OPU schools. 
+                            <div class="hola">
+                        <a href="Grad.html">Learn more</a> about graduate studies at OPU.</p>
+                        </div><br></div>
+
+
+
+
+
+                        <div class="Impoo">
+                            <h1 align="center">Lifelong Learning</h1></div>
+                            <br>
+                            <br><div class="Hent">
+                                <h2>From Pre-K to College Readiness:-</h2><br>
+                                <p>OPU offers a wide range of programs, classes, internships, and an entire online high school. Our world-class faculty challenge young people to explore and achieve - through CooDaaBurst research, internationally focused courses, and arts experiences.</p>
+                                <br>
+                                <h2>Professional Development:-</h2><br>
+                            <p>Learn from our expert faculty as you grow your knowledge in your professional sphere or prepare to pivot into a new career.</p>
+                            <br>
+                            <h2>Learning for Exploration and Enrichment:-</h2><br>
+                            <p>No matter where you live or work, OPU offers learning opportunities that empower you to feed your curiosity, seek meaning, and engage wholeheartedly in the world.</p><br>
+                                <div class="hola">
+                            <a href="lifelong.html">Learn more</a> 
+                            </div><br></div>
+
+   
+    <footer>
+        <div class="content">
+            <div class="left box">
+                
+                <div class="lower">
+                    <div class="topic">Contact us</div>
+                    <div class="phone">
+                        <a href="#"><i class="fas fa-phone-volume"></i>+91 9370794943</a>
+                    </div>
+                    <div class="email">
+                        <a href="#"><i class="fas fa-envelope"></i>opuni@opu.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="middle box">
+                <div class="topic">Quick Links</div>
+                <div><a href="FAQ.html">FAQ</a></div>
+                <div><a href="#">Sports at OPU</a></div>
+                <div><a href="#">Alumni</a></div>
+                <div><a href="#">Map</a></div>
+                <div><a href="#">Term Dates</a></div>
+            </div>
+            <div class="right box">
+                
+                <form action="#">
+                    <input type="text" placeholder="Enter email address">
+                    <input type="submit" name="" value="Subscribe">
+                    <div class="media-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>Copyright © 2023 <a href="#">Snehal Gurav</a> All rights reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>

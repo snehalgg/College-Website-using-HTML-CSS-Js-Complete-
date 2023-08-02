@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content=
+	"width=device-width,initial-scale=1.0">
+
+	<!-- CSS only -->
+	<link href=
+"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+		integrity=
+"sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+		crossorigin="anonymous" rel="stylesheet">
+
+	<!-- Html2Pdf -->
+	<script src=
+"https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.8.1/html2pdf.bundle.min.js"
+		integrity=
+"sha512vDKWohFHe2vkVWXHp3tKvIxxXg0pJxeid5eo+UjdjME3DBFBn2F8yWOE0XmiFcFbXxrEOR1JriWEno5Ckpn15A=="
+		crossorigin="anonymous">
+	</script>
+
+	<style>
+		.heading{
+		text-align: center;
+		color: #2F8D46;
+		}
+
+	
+
+		/*CSS For age*/
+		#Age{
+			margin-left: 89px;
+			width: 100px;
+		}
+
+        /*CSS for * mrk*/
+          /*---------------------------------------------*/
+          .wrap-input1 {
+            position:relative;
+            width: 100%;
+            z-index: 1;
+
+            margin-bottom: 20px;
+        }
+
+        .wrap-input1::before {
+            content: "*";
+            color: red;
+        }
+
+
+		/**css for country **/
+		.autocomplete {
+  position: relative;
+  display: inline-block;
+ width:auto;
+}
+
+
+
+.autocomplete-items {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.autocomplete-items div {
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgb(201, 152, 152); 
+  border-bottom: 1px solid #d4d4d4; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background-color: #e9e9e9; 
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: rgb(104, 231, 65) !important; 
+  color: #ffffff; 
+}
+
+
+
+
+					/**CSs FOr line arrangement**/
+					#user{
+						margin-left: 100px;
+					}
+					#user1{
+						margin-left: 70px;
+					}
+
+					#user2{
+						margin-left: 60px;
+					}
+
+					#user3{
+						margin-left: 90px;
+					}
+					#myBirthday{
+						margin-left: 110px;
+					}
+
+					#c{
+						margin-left: 90px;
+					}
+
+					#file_F{
+						padding-left: 200px;
+					}
+					
+	</style>
+</head>
+
+<body align="center">
+	<h1 class="heading">
+            Admission Form
+	</h1>  <br>
+    <h2> Instructions </h2>
+    <p>1. Fill the form only in Capital Letters.</p>
+    <p> 2. Places marked in (*) must be filled compulsory. </p>
+	<!-- Form encrypted as text -->
+	<form id ="form-print" enctype="text/plain"
+		class="form-control">
+
+
+        <label class="wrap-input1 validate-input"> First Name:
+
+        <input type="text" id="user" placeholder="Enter Name" required pattern="[A-Z]{2,}" title="Name Should be in Upper Case"></label><br><br>
+
+		<label class="wrap-input1 validate-input"> Father's Name:
+
+			<input type="text" id="user1" placeholder="Enter Name" required pattern="[A-Z]{2,}" title="Name Should be in Upper Case"></label><br><br>
+
+			<label class="wrap-input1 validate-input"> Mother's Name:
+
+				<input type="text" id="user2" placeholder="Enter Name" required pattern="[A-Z]{2,}" title="Name Should be in Upper Case"></label><br><br>
+        
+        <label class="wrap-input1 validate-input"> Last Name:
+
+        <input type="text" id="user3" placeholder="Enter Surname" required pattern="[A-Z]{2,}" title="Name Should be in Upper Case"> </label>
+        <br> <br>
+		<label for="age" class="wrap-input1 validate-input">
+            <strong>Enter Age: </strong>
+          
+        <input type="date" id="myBirthday" value="dd-mm-yyyy">
+        <button onclick="submitBirthday();">Submit</button>   </label>
+        <br><br>
+        
+        <div id="displayBirthday"><input type="text" id="Age" placeholder="Age" > </div>
+
+      
+        <script>
+            function submitBirthday() {
+    var minutes = 1000 * 60;
+    var hours = minutes * 60;
+    var days = hours * 24;
+    var years = days * 365;
+
+    var birthday = Date.parse(document.getElementById("myBirthday").value);
+    var dateNow = new Date();
+    var YearsOld = Math.round((dateNow-birthday)/ years);
+
+    document.getElementById("displayBirthday").innerHTML = ( YearsOld + " years old.");
+}
+        </script>		
+		<br>
+
+<label class="wrap-input1 validate-input">Mobile No:
+<input type="contact" id="c" required pattern="[6789]{1}[0-9]{9}"></label>
+<br>
+<hr>
+		
+
+		<label for="subject">
+		<strong>Select Course: </strong>
+		</label>
+		<div class="mystyle">
+			
+			<select>
+				<optgroup label="Under- Graduate">
+				  <option>Arts</option>
+				  <option>Commerce</option>
+				  <option>Science</option>
+				  <option>Engineering</option>
+				  <option>Management</option>
+				  <option>Social Studies</option>
+				  <option>Mass Media</option>
+				  <option>Fashion And Interior design</option>
+				  <option>City Planning</option>
+				</optgroup>
+				<optgroup label="Graduate">
+					<option>Arts</option>
+					<option>Commerce</option>
+					<option>Science</option>
+					<option>Engineering</option>
+					<option>Management</option>
+					<option>Social Studies</option>
+					<option>Mass Media</option>
+					<option>Fashion And Interior design</option>
+					<option>City Planning</option>
+				</optgroup>
+				<optgroup label="Life Long Learning">
+					<option>Literature</option>
+					<option>Mathematics</option>
+					<option>Physics</option>
+					<option>Geology</option>
+					<option>Astromomy and space science</option>
+				  </optgroup>
+			  </select>
+		  </div>
+		<br>
+
+
+		<label class="wrap-input1 validate-input">Gender:
+            <label id="sl">
+            <input type="radio" name="gender" id="bc" value="male" required> Male </label>
+            <label id="sl">
+            <input type="radio" name="gender" id="bc" value="female"> Female
+        </label></label>
+		<br>
+
+
+		<label class="wrap-input1 validate-input"> Country:
+		<form autocomplete="off" action="/action_page.php">
+    
+			<div class="autocomplete" "width:150px;">
+			  <input id="myInput" type="text" name="myCountry" placeholder="Country">
+			</div></label>
+			
+		  </form>
+		  
+		  <script>
+		  function autocomplete(inp, arr) {
+			
+			var currentFocus;
+		   
+			inp.addEventListener("input", function(e) {
+				var a, b, i, val = this.value;
+			   
+				closeAllLists();
+				if (!val) { return false;}
+				currentFocus = -1;
+			  
+				a = document.createElement("DIV");
+				a.setAttribute("id", this.id + "autocomplete-list");
+				a.setAttribute("class", "autocomplete-items");
+			   
+				this.parentNode.appendChild(a);
+				for (i = 0; i < arr.length; i++) {
+				  if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+					
+					b = document.createElement("DIV");
+					
+					b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+					b.innerHTML += arr[i].substr(val.length);
+					
+					b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+					
+					b.addEventListener("click", function(e) {
+						
+						inp.value = this.getElementsByTagName("input")[0].value;
+					   
+						closeAllLists();
+					});
+					a.appendChild(b);
+				  }
+				}
+			});
+			
+			inp.addEventListener("keydown", function(e) {
+				var x = document.getElementById(this.id + "autocomplete-list");
+				if (x) x = x.getElementsByTagName("div");
+				if (e.keyCode == 40) {
+				  /*If the arrow DOWN key is pressed,
+				  increase the currentFocus variable:*/
+				  currentFocus++;
+				  /*and and make the current item more visible:*/
+				  addActive(x);
+				} else if (e.keyCode == 38) { //up
+				  /*If the arrow UP key is pressed,
+				  decrease the currentFocus variable:*/
+				  currentFocus--;
+				  
+				  addActive(x);
+				} else if (e.keyCode == 13) {
+				  
+				  e.preventDefault();
+				  if (currentFocus > -1) {
+					
+					if (x) x[currentFocus].click();
+				  }
+				}
+			});
+			function addActive(x) {
+			  /*a function to classify an item as "active":*/
+			  if (!x) return false;
+			  /*start by removing the "active" class on all items:*/
+			  removeActive(x);
+			  if (currentFocus >= x.length) currentFocus = 0;
+			  if (currentFocus < 0) currentFocus = (x.length - 1);
+			  /*add class "autocomplete-active":*/
+			  x[currentFocus].classList.add("autocomplete-active");
+			}
+			function removeActive(x) {
+			  /*a function to remove the "active" class from all autocomplete items:*/
+			  for (var i = 0; i < x.length; i++) {
+				x[i].classList.remove("autocomplete-active");
+			  }
+			}
+			function closeAllLists(elmnt) {
+			  /*close all autocomplete lists in the document,
+			  except the one passed as an argument:*/
+			  var x = document.getElementsByClassName("autocomplete-items");
+			  for (var i = 0; i < x.length; i++) {
+				if (elmnt != x[i] && elmnt != inp) {
+				  x[i].parentNode.removeChild(x[i]);
+				}
+			  }
+			}
+			/*execute a function when someone clicks in the document:*/
+			document.addEventListener("click", function (e) {
+				closeAllLists(e.target);
+			});
+		  }
+		  
+		  /*An array containing all the country names in the world:*/
+		  var countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua & Barbuda","Argentina","Armenia","Aruba","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia","Bosnia & Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Cayman Islands","Central Arfrican Republic","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cuba","Curacao","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Ethiopia","Falkland Islands","Faroe Islands","Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam","Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kiribati","Kosovo","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Myanmar","Namibia","Nauro","Nepal","Netherlands","Netherlands Antilles","New Caledonia","New Zealand","Nicaragua","Niger","Nigeria","North Korea","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre & Miquelon","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Korea","South Sudan","Spain","Sri Lanka","St Kitts & Nevis","St Lucia","St Vincent","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este","Togo","Tonga","Trinidad & Tobago","Tunisia","Turkey","Turkmenistan","Turks & Caicos","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States of America","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"];
+		  
+		  /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+		  autocomplete(document.getElementById("myInput"), countries);
+		  </script>
+
+
+
+<label class="wrap-input1 validate-input">Address:
+<textarea id="instructions" rows="3" required></textarea> </label> 
+<br>
+<label class="wrap-input1 validate-input">Choose Photo:
+	<input type="file" name="file" id="file_F"/></label> 
+	<br>
+	<label class="wrap-input1 validate-input">Choose Sign:
+		<input type="file" name="file" id="file_F"/></label> 
+
+
+
+<br> <br>
+		
+		
+
+		<input type="button" class="btn btn-primary"
+		onclick="GeneratePdf();" value="GeneratePdf">
+	</form>
+				
+	<script>		
+		// Function to GeneratePdf
+		function GeneratePdf() {
+			var element = document.getElementById('form-print');
+			html2pdf(element);
+		}
+	</script>
+
+<input type="button" class="btn btn-primary"
+onclick="Pay();" value="Make Payment">
+<script>
+	function Pay(){
+	   window.location.href="cardpayment.html"
+   }
+</script>
+
+
+<input type="button" class="btn btn-primary"
+onclick="Back();" value="Back">
+<script>
+	function Back(){
+	   window.location.href="Register.html"
+   }
+</script>
+
+	<script src=
+"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity=
+"sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous">
+	</script>
+</body>
+</html>

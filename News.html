@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Website</title>
+    <link rel="Shortcut Icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+        body {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* CSS for header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1b1414;
+        }
+
+        .header .logo {
+            font-size: 25px;
+            font-family: 'Sriracha', cursive;
+            color: rgb(245, 179, 179);
+            text-decoration: none;
+            margin-left: 30px;
+        }
+
+        .nav-items {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #1b1414;
+            margin-right: 20px;
+        }
+
+        .nav-items a {
+            text-decoration: none;
+            color: rgb(250, 186, 186);
+            padding: 35px 20px;
+        }
+
+        /* CSS for main element */
+
+        
+.empty-btn {
+    border-radius: 0 3px 3px 0;
+}
+
+.fa-search {
+    color: var(--clr-grey-2);
+}
+
+.results {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    border-radius: 0 0 3px 3px;
+}
+
+.results li {
+    color: var(--clr-grey-3);
+    padding: 8px;
+    padding-bottom: 0;
+}
+
+li:last-child {
+    padding-bottom: 8px;
+    border-radius: 0 0 3px 3px;
+}
+
+
+
+
+.background {
+			background: grey;
+			background-blend-mode: darken;
+			background-size: cover;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("OIP.jfif");
+      background-repeat: no-repeat;
+                background-size: 100%;
+                width: 100%;
+		  
+    }
+
+		.firstsection {
+			height: 100vh;
+		}
+
+		.box-main {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: white;
+			max-width: 50%;
+			margin: auto;
+			height: 80%;
+		}
+
+		.firstHalf {
+			width: 75%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center
+		}
+
+		.firstHalf img {
+			display: flex;
+			border-radius: 9050px;
+		}
+
+		.text-big {
+			font-family: 'Piazzolla', serif;
+			font-weight: bold;
+			font-size: 41px;
+			text-align: center;
+		}
+
+		.text-small {
+			font-family: 'Sansita Swashed', cursive;
+			font-size: 18px;
+			text-align: center;
+		}
+
+		#service {
+			margin: 34px;
+			display: flex;
+		}
+
+		#service .box {
+			padding: 100px;
+			margin: 3px 6px;
+			border-radius: 28px;
+		}
+
+		#service .box img {
+			margin-top: 10px;
+			height: 150px;
+			margin: auto;
+			display: block;
+			border-radius: 200px;
+		}
+
+		#service .box p {
+
+			font-family: sans-serif;
+			text-align: center;
+		}
+
+		#services {
+			margin: 34px;
+			display: flex;
+		}
+
+		#services .box {
+
+			padding: 100px;
+			margin: 3px 6px;
+			border-radius: 28px;
+		}
+
+		#services .box img {
+			margin-top: 10px;
+			height: 150px;
+			margin: auto;
+			display: block;
+			border-radius: 100px;
+		}
+
+		#services .box p {
+
+			font-family: sans-serif;
+			text-align: center;
+		}
+
+		.btn {
+			padding: 8px 20px;
+			margin: 7px 0;
+			border: 2px solid white;
+			border-radius: 8px;
+			background: none;
+			color: white;
+			cursor: pointer;
+		}
+
+		.btn-sm {
+			padding: 6px 10px;
+			vertical-align: middle;
+		}
+
+		.center {
+			text-align: center;
+		}
+        .intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 520px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://th.bing.com/th/id/OIP.a_L1m5mRwxwjlHkRMSAbBAHaEK?pid=ImgDet&rs=1");
+            
+            background-repeat: no-repeat;
+                background-size: 100%;
+                width: 100%;
+        }
+
+        .intro h1 {
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 60px;
+            color: rgb(240, 236, 6);
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .intro p {
+            font-size: 20px;
+            color: #d1d1d1;
+            text-transform: uppercase;
+            margin: 20px 0;
+        }
+
+        .intro button {
+            background-color: #5edaf0;
+            color: #000;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+        }
+
+        .achievements {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 40px 80px;
+        }
+
+        .achievements .work {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 0 40px;
+        }
+
+        .achievements .work i {
+            width: fit-content;
+            font-size: 50px;
+            color: #333333;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            padding: 12px;
+        }
+
+        .achievements .work .work-heading {
+            font-size: 20px;
+            color: #333333;
+            text-transform: uppercase;
+            margin: 10px 0;
+        }
+
+        .achievements .work .work-text {
+            font-size: 15px;
+            color: #585858;
+            margin: 10px 0;
+        }
+
+        .about-me {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 80px;
+            border-top: 2px solid #eeeeee;
+        }
+
+        .about-me img {
+            width: 500px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .about-me-text h2 {
+            font-size: 30px;
+            color: #333333;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        .about-me-text p {
+            font-size: 15px;
+            color: #585858;
+            margin: 10px 0;
+        }
+
+        .search-container {
+            position: relative;
+            width: fit-content;
+            width: -moz-fit-content;
+            margin-left: auto;
+            margin-right: 4rem;
+            box-shadow: var(--light-shadow);
+        }
+
+        .wrapper {
+            display: flex;
+            border-bottom: 1px solid var(--clr-grey-2);
+        }
+
+        .empty {
+            border-bottom: none;
+        }
+
+        input {
+            padding: 6px 8px;
+            width: 10rem;
+            border: none;
+            font-size: 15px;
+            border-radius: 3px 0 0 0;
+        }
+
+        .empty-input {
+            border-radius: 3px 0 0 3px;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .search-btn {
+            width: 2rem;
+            border: none;
+            background: #fff;
+            font-size: 15px;
+            border-radius: 0 3px 0 0;
+        }
+
+        .empty-btn {
+            border-radius: 0 3px 3px 0;
+        }
+
+        .fa-search {
+            color: var(--clr-grey-2);
+        }
+
+        .results {
+            position: absolute;
+            width: 100%;
+            background: #fff;
+            border-radius: 0 0 3px 3px;
+        }
+
+        .results li {
+            color: var(--clr-grey-3);
+            padding: 8px;
+            padding-bottom: 0;
+        }
+
+        li:last-child {
+            padding-bottom: 8px;
+            border-radius: 0 0 3px 3px;
+        }
+        /*css for button*/
+        #b1{
+	background-color:#967c5b;
+	border: none;
+	border-radius: 25px 25px/ 25px 25px;
+	
+  box-shadow:2px 2px 0px 2px #949494;
+	color: white;
+	padding:15px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+      
+
+
+            
+
+/*CSS for search*/
+                .fullPageMenu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #111;
+    transition: 0.5s;
+}
+
+.fullPageMenu.active {
+    top: 100%;
+}
+
+.fullPageMenu .banner {
+    position: fixed;
+    width: 600px;
+    height: 100%;
+}
+
+.fullPageMenu .banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.fullPageMenu .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.fullPageMenu .nav ul {
+    position: relative;
+    margin-top: 150px;
+}
+
+.fullPageMenu .nav ul li {
+    position: relative;
+    list-style: none;
+    padding: 0 20px;
+    margin: 5px 0;
+    overflow: hidden;
+    display: table;
+    margin-top: 10px;
+}
+
+.fullPageMenu .nav ul li:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ff0047;
+    transition: transform 0.5s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+
+.fullPageMenu .nav ul li:hover:before {
+    transition: transform 0.5s ease-in-out;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.fullPageMenu .nav ul li a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    font-size: 4em;
+    font-weight: 700;
+    line-height: 1em;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.5s ease-in-out;
+}
+
+.fullPageMenu .nav ul li a::before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    color: #fff;
+}
+
+.fullPageMenu .nav ul li:hover a {
+    transform: translateY(-100%);
+    color: fff;
+}
+
+.menuicon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #000000 url(bm.jfif);
+    background-size: 40px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+.menuicon.active {
+    background: #000000 url(bm.jfif);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    position: absolute;
+    top: -16px;
+    left: 202px;
+}
+
+@media(max-width:991px) {
+    .banner {
+        display: none;
+    }
+}
+        /*Css For Footer*/
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            text-decoration: none;
+        }
+
+        footer {
+            width: 100%;
+            position: relative;
+            bottom: 0;
+            left: 0;
+            background: #111;
+        }
+
+        footer .content {
+            max-width: 1350px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        footer .content p,
+        a {
+            color: #fff;
+        }
+
+        footer .content .box {
+            width: 33%;
+            transition: all 0.4s ease;
+        }
+
+        footer .content .topic {
+            font-size: 22px;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 16px;
+
+        }
+
+        footer .content p {
+            text-align: justify;
+        }
+
+        footer .content .lower .topic {
+            margin: 24px 0 5px 0;
+        }
+
+        footer .content .lower i {
+            padding-right: 16px;
+        }
+
+        footer .content .middle {
+            padding-left: 80px;
+        }
+
+        footer .content .middle a {
+            line-height: 32px;
+        }
+
+        footer .content .right input[type="text"] {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            color: #d9d9d9;
+            background: #000;
+            border-radius: 5px;
+            padding-left: 10px;
+            font-size: 17px;
+            border: 2px solid #222222;
+        }
+
+        footer .content .right input[type="submit"] {
+            height: 42px;
+            width: 100%;
+            font-size: 18px;
+            color: #000000;
+            background: #22EF3A;
+            outline: none;
+            border-radius: 5px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 12px;
+            border: 2px solid #22EF3A;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .content .right input[type="submit"]:hover {
+            background: none;
+            color: #22EF3A;
+        }
+
+        footer .content .media-icons a {
+            font-size: 16px;
+            height: 45px;
+            width: 45px;
+            display: inline-block;
+            text-align: center;
+            line-height: 43px;
+            border-radius: 5px;
+            border: 2px solid #222222;
+            margin: 30px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .content .media-icons a:hover {
+            border-color: #22EF3A;
+        }
+
+        footer .bottom {
+            width: 100%;
+            text-align: right;
+            color: #d9d9d9;
+            padding: 0 40px 5px 0;
+        }
+
+        footer .bottom a {
+            color: #22EF3A;
+        }
+
+        footer a {
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #22EF3A;
+        }
+
+        @media (max-width:1100px) {
+            footer .content .middle {
+                padding-left: 50px;
+            }
+        }
+
+        @media (max-width:950px) {
+            footer .content .box {
+                width: 50%;
+            }
+
+            .content .right {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width:560px) {
+            footer {
+                position: relative;
+            }
+
+            footer .content .box {
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            footer .content .middle {
+                padding-left: 0;
+            }
+
+        }
+
+        h3 {
+            color: darkred;
+        }
+
+
+        header .nav-items a{
+    font-size: 1.2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  color:#d1d1d1;
+}
+
+header .nav-items a.active,
+header .nav-items a:hover{
+    color: #fd2c2c;
+  background: var(--col-1);
+}
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: 0.5rem;
+    height: 2rem;
+    line-height: 2rem;
+    width: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    color: var(--col-2);
+    border-radius: 50%;
+    background: #eee;
+}
+
+header .icons i:hover,
+header .icons a:hover{
+    color: #eb5151;
+  background: var(--col-1);
+  transform: rotate(360deg);
+}
+
+header .icons #menu-bars{
+    display: none;
+}
+#load
+{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:150px;
+  height:150px;
+  background:transparent;
+  border:3px solid #3c3c3c;
+  border-radius:50%;
+  text-align:center;
+  line-height:150px;
+  font-size:1.3rem;
+  color:#000000;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  text-shadow:0 0 10px #fff000;
+  box-shadow:0 0 20px rgba(0,0,0,.5);
+  
+}
+#load:before
+{
+  content:'';
+  position:absolute;
+  top:-3px;
+  left:-3px;
+  width:100%;
+  height:100%;
+  border:3px solid transparent;
+  border-top:3px solid #fff000;
+  border-right:3px solid #fff000;
+  border-radius:50%;
+  animation:animateC 2s linear infinite;
+}
+span1
+{
+  display:block;
+  position:absolute;
+  top:calc(50% - 2px);
+  left:50%;
+  width:50%;
+  height:4px;
+  background:transparent;
+  transform-origin:left;
+  animation:animate 2s linear infinite;
+}
+span1:before
+{
+  content:'';
+  position:absolute;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#fd0404;
+  top:-6px;
+  right:-8px;
+  box-shadow:0 0 20px #fff000;
+}
+@keyframes animateC
+{
+  0%
+  {
+    transform:rotate(0deg);
+  }
+  100%
+  {
+    transform:rotate(360deg);
+  }
+}
+@keyframes animate
+{
+  0%
+  {
+    transform:rotate(45deg);
+  }
+  100%
+  {
+    transform:rotate(405deg);
+  }
+}
+
+
+            /*Css for dark mode*/
+.dark-mode {
+		background-color: black;
+		color: white;
+	}
+	.light-mode {
+		background-color: white;
+		color: black;
+	}
+    .fo{
+	background-color:#a04d00;
+	border: none;
+	border-radius: 25px 25px/ 25px 25px;
+	color: rgb(247, 43, 43);
+	padding:10px 15px;
+	text-align: center;
+	text-decoration: none;
+	display: inline;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+    .dm{
+        background-color: #000;
+        color: whitesmoke;
+        cursor: pointer;
+    }
+    .lm{
+        background-color: #000;
+        color: whitesmoke;
+        cursor: pointer;
+    }
+    </style>
+
+
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-VKBJ61GEPE');
+    </script>
+
+</head>
+
+<body>
+    <div id="load">Loading
+        <span1></span1>
+      </div>
+      <script>
+        document.onreadystatechange = function () {
+         var state = document.readyState
+  if (state == 'interactive') {
+       document.getElementById('contents').style.visibility="hidden";
+  } else if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('interactive');
+         document.getElementById('load').style.visibility="hidden";
+         document.getElementById('contents').style.visibility="visible";
+      },1000);
+  }
+        }
+  
+    </script>
+    <header class="header">
+        <img src="https://res.cloudinary.com/teepublic/image/private/s--4QgZGglv--/t_Preview/b_rgb:191919,c_limit,f_jpg,h_630,q_90,w_630/v1474683748/production/designs/630314_2.jpg"
+            width="150" height="160">
+        <a href="" class="logo">One Piece University</a>
+        <nav class="nav-items">
+
+            <a href="homepage.html">Home</a>
+            <a href="Academics.html">Academics</a>
+            <a href="Gallery.html">Gallery</a>
+            <a href="Academics.html">Admission</a>
+            <button class="dm" onclick="darkMode()">D
+                <button class="lm" onclick="lightMode()">L</button></button>
+                <script>
+                function darkMode() {
+                    var element = document.body;
+                    var content = document.getElementById("");
+                    element.className = "dark-mode";
+                    
+                }
+                function lightMode() {
+                    var element = document.body;
+                    var content = document.getElementById("");
+                    element.className = "light-mode";
+                    
+                }
+                </script>
+            <!-- search form  -->
+            <div class="search-container">
+                <form class="wrapper empty">
+                    <input class="search empty-input" id="search" type="text" placeholder="Search..." name="search"
+                        autocomplete="off">
+                        <button type="submit" class="search-btn empty-btn"><i class="fas fa-search"></i></button>
+                       
+                </form>
+        </nav>
+    </header>
+    <main>
+        <section class="background firstsection">
+            <div class="box-main">
+                <div class="firstHalf">
+                    <p class="text-big">About US</p>
+                    
+                    <p class="text-small">
+                        
+    One Piece University is the top national university for science and technology in Japan with a
+            history spanning more than 130 years. Of the approximately 10,500 students at the Ookayama,
+            Suzukakedai, and Tamachi Campuses, half are in their bachelor's degree program while the other
+            half are in master's and doctoral degree programs. International students number 1,700. There
+            are 1,200 faculty and 600 administrative and technical staff members. In the 21st century, the
+            role of science and technology universities has become increasingly important. One Piece
+            University continues to develop global leaders in the fields of science and technology, and
+            contributes to the betterment of society through its research, focusing on solutions to global
+            issues. The Institute's long-term goal is to become the world's leading science and technology
+            university..</p>
+    </div>
+    
+    
+                    </p>
+                    <br>
+    
+    </main>
+
+   
+    <footer>
+        <div class="content">
+            <div class="left box">
+                
+                <div class="lower">
+                    <div class="topic">Contact us</div>
+                    <div class="phone">
+                        <a href="#"><i class="fas fa-phone-volume"></i>+91 9370794943</a>
+                    </div>
+                    <div class="email">
+                        <a href="#"><i class="fas fa-envelope"></i>opuni@opu.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="middle box">
+                <div class="topic">Quick Links</div>
+                <div><a href="FAQ.html">FAQ</a></div>
+                <div><a href="Sports.html">Sports at OPU</a></div>
+                <div><a href="Alumni.html">Alumni</a></div>
+                <div><a href="Maps.html">Map</a></div>
+                <div><a href="Termdates.html">Term Dates</a></div>
+            </div>
+            <div class="right box">
+                <div class="topic">Sign up for newsletter</div>
+                <form action="#">
+                    <input type="text" placeholder="Enter email address">
+                    <input type="submit" name="" value="Subscribe">
+                    <div class="media-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>Copyright © 2023 <a href="#">Snehal Gurav</a> All rights reserved</p>
+        </div>
+    </footer>
+</body>
+
+</html>
